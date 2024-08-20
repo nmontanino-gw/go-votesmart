@@ -1,15 +1,17 @@
 package votesmarttypes
 
+type MeasureSummary struct {
+	MeasureID   string `json:"measureId"`
+	MeasureCode string `json:"measureCode"`
+	Title       string `json:"title"`
+	Outcome     string `json:"outcome"`
+}
+
 // MeasureGetMeasuresByYearState is the response message for Measure.getMeasuresByYearState.
 // See http://api.votesmart.org/docs/Measure.html for usage details.
 type MeasureGetMeasuresByYearState struct {
 	Measures struct {
-		Measure []struct {
-			MeasureID   string `json:"measureId"`
-			MeasureCode string `json:"measureCode"`
-			Title       string `json:"title"`
-			Outcome     string `json:"outcome"`
-		} `json:"measure"`
+		Measure MaybeList[MeasureSummary] `json:"measure"`
 	} `json:"measures"`
 }
 
