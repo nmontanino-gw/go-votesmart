@@ -4,11 +4,13 @@ package votesmarttypes
 // See http://api.votesmart.org/docs/Rating.html for usage details.
 type RatingGetCategories struct {
 	Categories struct {
-		Category []struct {
-			CategoryID string `json:"categoryId"`
-			Name       string `json:"name"`
-		} `json:"category"`
+		Category MaybeList[Category] `json:"category"`
 	} `json:"categories"`
+}
+
+type Category struct {
+	CategoryID string `json:"categoryId"`
+	Name       string `json:"name"`
 }
 
 func (RatingGetCategories) Method() string {
@@ -90,21 +92,20 @@ type RatingGetCandidateRating struct {
 			Suffix     string `json:"suffix"`
 			Office     string `json:"office"`
 		} `json:"candidate"`
-		Rating []struct {
-			SigID      string `json:"sigId"`
-			RatingID   string `json:"ratingId"`
-			Categories struct {
-				Category []struct {
-					CategoryID string `json:"categoryId"`
-					Name       string `json:"name"`
-				} `json:"category"`
-			} `json:"categories"`
-			Timespan   string `json:"timespan"`
-			Rating     string `json:"rating"`
-			RatingName string `json:"ratingName"`
-			RatingText string `json:"ratingText"`
-		} `json:"rating"`
+		Rating MaybeList[Rating] `json:"rating"`
 	} `json:"candidateRating"`
+}
+
+type Rating struct {
+	SigID      string `json:"sigId"`
+	RatingID   string `json:"ratingId"`
+	Categories struct {
+		Category MaybeList[Category] `json:"category"`
+	} `json:"categories"`
+	Timespan   string `json:"timespan"`
+	Rating     string `json:"rating"`
+	RatingName string `json:"ratingName"`
+	RatingText string `json:"ratingText"`
 }
 
 func (RatingGetCandidateRating) Method() string {

@@ -8,8 +8,8 @@ import (
 	"os"
 	"testing"
 
-	"dev.freespoke.com/go-votesmart"
-	"dev.freespoke.com/go-votesmart/votesmarttypes"
+	"github.com/nmontanino-gw/go-votesmart"
+	"github.com/nmontanino-gw/go-votesmart/votesmarttypes"
 )
 
 func TestAPI(t *testing.T) {

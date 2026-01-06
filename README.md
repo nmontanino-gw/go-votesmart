@@ -8,7 +8,7 @@ A golang client for the [Votesmart](http://api.votesmart.org/docs/index.html) AP
 ## Installation
 
 ```sh
-$ go get dev.freespoke.com/go-votesmart
+$ go get github.com/nmontanino-gw/go-votesmart
 ```
 
 ## Usage
